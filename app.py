@@ -11,7 +11,7 @@ if "messages" not in st.session_state:
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
 
-user_prompt = st.chat_input("Ask about call drivers, repeat rates, or transcript root causes...")
+user_prompt = st.chat_input("Ask about repeat rates, or transcript root causes...")
 
 if user_prompt:
     st.session_state.messages.append({"role": "user", "content": user_prompt})

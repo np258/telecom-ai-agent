@@ -3,7 +3,7 @@ from agent import TelecomAgent
 
 st.set_page_config(page_title="Telecom AI Agent", layout="wide")
 st.title("Customer Intelligence Agentic Assistant")
-st.caption("Powered by LLM Tool Calling, Vector RAG & Conversational Analytics")
+st.caption("Powered by LLM Tool Calling & Conversational Analytics")
 
 # Initialize Agent
 agent = TelecomAgent()

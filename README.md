@@ -1,13 +1,19 @@
 [Click here for Live Streamlit App demo](https://telecom-ai-agent-ly2ydwxhneuezdr2qoagmu.streamlit.app/)
 
 What is this agent?
-It combines three core elements:
+An agentic customer intelligence assistant designed to analyze telecom operations data, isolate repeat call drivers, and identify root causes from customer call transcripts.
 
-    1. RAG (Retrieval-Augmented Generation): The agent searches customer call transcripts to find specific root causes (e.g., firmware issues).
+### Key Features & Architecture
 
-    2. Conversational Analytics: Users can ask plain-English questions (e.g., "What is the main driver for repeat calls in the East region?") and receive structured charts and answers.
+* **Agentic Tool Calling & Orchestration:** Powered by OpenAI GPT models to dynamically evaluate user prompts, select function schemas, and execute tools (`run_sql_query`, `search_call_transcripts`).
+* **Conversational Operations Analytics:** Translates natural language business queries into quantitative KPI metrics, First Call Resolution (FCR) indicators, and repeat call rates.
+* **Qualitative Transcript Search:** Searches customer call interaction logs to uncover underlying root causes, such as firmware regressions, billing confusion, or router setup issues.
+* **Separation of Concerns:** Clean enterprise structure decoupling the UI (`app.py`), agent orchestration logic (`agent.py`), and tool definitions (`agent_tools.py`).
 
-    3. Agentic Workflow / Tool Calling: The AI agent automatically decides which tool to use—running a SQL query for numbers versus searching transcripts for text insights.
+---
 
-
-[Click here for Live Streamlit App demo](https://telecom-ai-agent-ly2ydwxhneuezdr2qoagmu.streamlit.app/)
+### Tech Stack
+* **UI/UX:** Streamlit
+* **LLM Orchestration:** OpenAI API (`gpt-4o` / `gpt-4o-mini`)
+* **Language:** Python 3.10+
+* **Environment Management:** `python-dotenv`

@@ -21,12 +21,11 @@ CORE RESPONSIBILITIES:
 
 class TelecomAgent:
     def __init__(self):
-        self.api_key = os.getenv("GROQ_API_KEY") or st.secrets.get("GROQ_API_KEY")
-        
-        if not self.api_key:
-            raise ValueError("GROQ_API_KEY not found in .env or Streamlit secrets.")
-            
-        self.client = Groq(api_key=self.api_key)
+        try:
+            api_key = st.secrets["GROQ_API_KEY"]
+        except (KeyError, FileNotFoundError, Exception):
+            api_key = os.getenv("GROQ_API_KEY")
+        self.client = Groq(api_key=api_key)
 
     def get_active_model(self):
         preferred_models = ["openai/gpt-oss-120b", "openai/gpt-oss-20b", "qwen/qwen3.6-27b"]
